@@ -1,1 +1,3 @@
-# andreystarikov.github.io
+## License
+
+See [LICENSE.md](LICENSE.md).
