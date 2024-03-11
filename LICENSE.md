@@ -4,9 +4,9 @@ All the files inside `_posts` and `images/posts` directory are licensed under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The attribution requirement is only met when:
 
 1. The canonical link is directed towards the original article, e.g.
-   `<link rel="canonical" href="https://andreystarikov.github.io/2024-03-03-Scheduling-with-Spring-Boot-and-Quartz.html" />`
+   `<link rel="canonical" href="https://fewpetabytes.com/2024-03-03-Scheduling-with-Spring-Boot-and-Quartz.html" />`
 2. The following message is displayed above and below the article:
-   `This article has been originally published on <a href="https://andreystarikov.github.io/">Few petabytes website</a>.`
+   `This article has been originally published on <a href="https://fewpetabytes.com/">Few petabytes website</a>.`
 
 # Images
 

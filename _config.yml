@@ -10,9 +10,9 @@ title_author_part: "by Andrey Starikov"
 description: "I'm Andrey Starikov and this is my blog. Here I write about tech and more."
 
 # The base hostname & protocol of your site for where absolute urls are needed.
-url: "https://andreystarikov.github.io"
+url: "https://fewpetabytes.com"
 
-domain: andreystarikov.github.io
+domain: fewpetabytes.com
 
 # The subpath of your site, e.g. /blog, for generating urls.
 baseurl: ""
