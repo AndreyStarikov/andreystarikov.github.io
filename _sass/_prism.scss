@@ -57,6 +57,8 @@ pre[class*="language-"] {
   border-radius: .3em;
   //color: #D03E5E;
   background: _palette(bg);
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .namespace {
