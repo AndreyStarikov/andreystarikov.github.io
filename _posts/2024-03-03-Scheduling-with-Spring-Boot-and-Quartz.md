@@ -316,7 +316,7 @@ return TriggerBuilder.newTrigger().forJob(jobDetail)
 }
 ```
 The `@Bean` annotation enables Spring to discover this job and schedule it, but don't forget to annotate the entire class with the Spring annotation `@Configuration`. `@Value("${scheduler.staticJobIntervalInMilliseconds}") long intervalInMillis` argument in trigger allows us to configure trigger through application settings.
-Finally our class will look like this:
+Finally, our class will look like this:
 ```java
 @Configuration
 public class StaticJobExampleConfig {

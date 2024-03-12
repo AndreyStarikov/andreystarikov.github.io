@@ -19,8 +19,9 @@
 
 // Font.
 $font: (
-  primary: ("Lato","Helvetica Neue",Helvetica,sans-serif),
-  secondary: ("Montserrat", "Open Sans", Arial, sans-serif)
+  primary: (Lato,"Helvetica Neue",Helvetica,sans-serif),
+  secondary: (Montserrat, "Open Sans", Arial, sans-serif),
+  code: (Consolas, Monaco, Inconsolata, "Andale Mono", monospace)
 );
 
 // Palette.
