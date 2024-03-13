@@ -81,7 +81,7 @@ Current time is 17:28:18
 ```
 It works. Every 5 seconds we have message in logs with current time.
 
-What's next? Now, let's consider a scenario where we need to dynamically schedule tasks with specific arguments while our application is running. In such cases, it is better to use Quartz, a popular open-source job scheduling library. To integrate Quartz into our project, we will add the 'quartz-spring-boot-starter' dependency.
+What's next? Now, let's consider a scenario where we need to dynamically schedule tasks with specific arguments while our application is running. In such cases, it is better to use Quartz, a popular open-source job scheduling library. To integrate Quartz into our project, we will add the `spring-boot-starter-quartz` dependency.
 ```
 implementation("org.springframework.boot:spring-boot-starter-quartz")
 ```
@@ -111,9 +111,7 @@ The main components of Quartz are `Job`, `JobDetail`, `Trigger`, and `Scheduler`
 - `Scheduler` orchestrates the execution of jobs.
   To schedule a job, we need to describe this job, define the conditions for starting it, and then submit these descriptions to the scheduler. Let's try to do it!
 
-As an example, we will create a job via REST controller that will output a message to logs.
-First, since we no longer need the Spring native scheduler, we can remove the `@EnableScheduling` annotation from the `Application` class.
-Next, we'll define our first `Job`. A Quartz job must implement the `org.quartz.Job` interface. We'll create a class and implement the `execute()` method of this interface. Within this method, we'll take the `JOB_NAME` parameter of the job and show it in logs. The final structure of our class will look like:
+As an example, we will create a job via REST controller that will output a message to logs. First, since we no longer need the Spring native scheduler, we can remove the `@EnableScheduling` annotation from the `Application` class. Next, we'll define our first `Job`. A Quartz job must implement the `org.quartz.Job` interface. We'll create a class and implement the `execute()` method of this interface. Within this method, we'll take the `JOB_NAME` parameter of the job and show it in logs. The final structure of our class will look like:
 ```java
 public class JobExample implements Job {  
     
@@ -160,7 +158,8 @@ public class Controller {
 `JobDetail` describes the parameters of the job instance. Here, we specify the job class to use, and also add a job name parameter (`JOB_NAME`) to the `jobDataMap` key-value storage.
 As for the `Trigger`, it determines when the job must be executed. While there are multiple options for configuring triggers, for simplicity, let's start the job immediately using the `startNow()` option.
 
-We've now defined the task, specified when and with what parameters it should run. The final step is to submit the job to the scheduler. For our scheduler, we'll use the `SchedulerFactoryBean` bean provided by Spring.
+We've now defined the task, specified when and with what parameters it should run. The final step is to submit the job to the scheduler. For our scheduler, we'll use the `SchedulerFactoryBean` bean provided by Spring. 
+
 Done. With these configurations in place, after running our application and sending a GET request to `localhost:8080/job/"first job"`, the outcome will be as follows:
 ```
 Job "first job" is scheduling
@@ -168,6 +167,7 @@ Job "first job" is running
 ```
 
 So now we know how to run a statically defined job and how to create and run a job at application runtime. What's next?
+
 In real-world applications, we need job persistence to prevent information loss when the application is restarted. We also need the ability to run jobs on multiple instances of our application without repetition. So next I will give an example of an application that will run both static jobs and jobs created in runtime in a cluster. The application will use **PostgreSQL** to store information about the jobs and also to synchronize between multiple instances of the application. Docker-compose file for Postgres can be found in the [repository](https://github.com/AndreyStarikov/spring-boot-quartz-example/blob/master/quartz-cluster-scheduler/docker-compose.yml). Keep in mind that **Quartz** can also be used with other databases, not only relational ones (**MongoDB** for example). We will use **Liquibase** to initialize tables for Quartz scheduler in the database.
 
 Let's start by adding new dependencies for work with database to our `build.gradle.kts`:
