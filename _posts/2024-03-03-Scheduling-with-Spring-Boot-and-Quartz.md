@@ -102,7 +102,7 @@ spring:
             class: org.quartz.simpl.SimpleThreadPool  
             threadCount: 1
 ```
-All properties you can find in official documentation: http://www.quartz-scheduler.org/documentation/quartz-2.3.0/configuration/ConfigMain.html
+All properties you can find in official [documentation](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/configuration/ConfigMain.html).
 
 The main components of Quartz are `Job`, `JobDetail`, `Trigger`, and `Scheduler`.
 - `Job` defines the action to schedule.
